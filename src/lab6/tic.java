@@ -1,5 +1,6 @@
 package lab6;
-import java.io.IOException;
+/////////////this is for stage
+import java.io.IOException; 
 import java.lang.reflect.InvocationTargetException ;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -18,9 +19,9 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class tic extends Application implements EventHandler<ActionEvent>  {
-	public Button button[][];
-	public int who = 0; //0 = o and 1 is X
-	public GridPane pane;
+	public Button button[][]; // 2 demension
+	public int who = 0; //0 = o and 1 is X , it changed continuously O X O X
+ 	public GridPane pane;
 	int turn =0;
 	public TicClass game;
 	public Button startAgain;
@@ -43,10 +44,10 @@ public class tic extends Application implements EventHandler<ActionEvent>  {
 		
 		Image o = new Image("file:image/o.jpg");
 		Image x = new Image("file:image/x.jpg");
-		for(int i=0;i<3;i++) {
+		for(int i=0;i<3;i++) { //check nine button
 			for(int j=0;j<3;j++) {
 				if(event.getSource()==button[i][j]) {
-					game.Clickboard(who,i, j);
+					game.Clickboard(who,i, j); //i j is button index 
 					if(who==0){
 						button[i][j].setGraphic(new ImageView(o));
 					
@@ -118,7 +119,7 @@ public class tic extends Application implements EventHandler<ActionEvent>  {
  }
 	
 	
-	public void block() {
+	public void block() { //block user to play game, because game is finished 
 		for(int i=0;i<3;i++) {
 			for(int j=0;j<3;j++) {
 				
@@ -129,15 +130,15 @@ public class tic extends Application implements EventHandler<ActionEvent>  {
 			}
 		}
 	}
-	public void cleanup(Stage pp) throws  IOException {
+	public void cleanup(Stage pp) throws  IOException { // for restart clear
 		reStart(pp);
 		
 	}
-	public void reStart(Stage primaryStage) throws  IOException {
+	public void reStart(Stage primaryStage) throws  IOException { // restart 
 		try {
 			primaryStage.close();
 			Stage newStage = new Stage();
-			startGame(newStage);
+			startGame(newStage); //start new stage!
 			
 		}catch(InvocationTargetException e){
 			
@@ -190,7 +191,7 @@ public class tic extends Application implements EventHandler<ActionEvent>  {
 			primaryStage.show(); // Display the stage
 	}
 	public void start(Stage primaryStage)  throws  IOException,InvocationTargetException {
-		startGame(primaryStage);
+		startGame(primaryStage); //first stage
 
 	}
 	

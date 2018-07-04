@@ -1,22 +1,22 @@
 package lab6;
 
 public class TicClass {
-int who=0;
-int board[][] = {{10,10,10},{10,10,10},{10,10,10}};
+int who=0; // 0 and X user 2 user play
+int board[][] = {{10,10,10},{10,10,10},{10,10,10}}; // 10 mean not yet clicked 
 
 TicClass(){
 	
 }
 	public void Clickboard(int whois, int row, int col) {
 	
-		board[row][col] = whois;
+		board[row][col] = whois; //put who is clicked 
 	
 
 	}
 	public int checkWinner() {
-		//1 X is has winner 
-		//0 o is winner 
-		//2 no winner
+		//return 1 X is has winner 
+		//return0 o is winner 
+		//return2 no winner
 		
 		//row check
 		int checkNum = 0 ;
@@ -56,7 +56,7 @@ TicClass(){
 			
 		}
 		
-		// . diagonal chek
+		// . diagonal check
 		checkNum = 0 ;
 		checkNum += (board[0][0]+board[1][1]+board[2][2]);
 	
